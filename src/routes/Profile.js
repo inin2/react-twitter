@@ -32,20 +32,20 @@ function Profile({ refreshUser, userObj }) {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    if(userObj.displayName !== newDisplayName) {
+    if (userObj.displayName !== newDisplayName) {
       await updateProfile(authService.currentUser, { displayName: newDisplayName });
       refreshUser();
     }
   };
 
   return (
-    <>
-      <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Display name" value={newDisplayName} onChange={onChange} />
-        <input type="submit" value="Update Profile" />
+    <div className="container">
+      <form onSubmit={onSubmit} className="profileForm">
+        <input type="text" className="formInput" placeholder="Display name" value={newDisplayName} onChange={onChange} autoFocus />
+        <input type="submit" className="formBtn" style={{ marginTop: 10 }} value="Update Profile" />
       </form>
-      <button onClick={onLogOutClick}>Log Out</button>
-    </>
+      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>Log Out</span>
+    </div>
   );
 }
 

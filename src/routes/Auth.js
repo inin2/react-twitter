@@ -1,39 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { authService } from "fbase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import AuthForm from "components/AuthForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faGoogle, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 function Auth() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [newAccount, setNewAccount] = useState(true);
-  const [error, setError] = useState("");
-
-  const onChange = (event) => {
-    const { name, value } = event.target;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
-  };
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    let data;
-    try {
-      if (newAccount) {
-        data = await createUserWithEmailAndPassword(authService, email, password);
-      } else {
-        data = await signInWithEmailAndPassword(authService, email, password);
-      }
-      console.log(data);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
-  const toggleAccount = () => setNewAccount((prev) => !prev);
-
   const onSocialClick = async (event) => {
     const { name } = event.target;
     let provider;
@@ -43,21 +15,20 @@ function Auth() {
       provider = new GithubAuthProvider();
     }
     const data = await signInWithPopup(authService, provider);
-		console.log(data);
+    console.log(data);
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <input name="email" type="text" placeholder="Email" required value={email} onChange={onChange} />
-        <input name="password" type="password" placeholder="Password" required value={password} onChange={onChange} />
-        <input type="submit" value={newAccount ? "Create Account" : "Sigin In"} />
-        {error}
-      </form>
-      <span onClick={toggleAccount}>{newAccount ? "Sigin In" : "Create Account"}</span>
-      <div>
-        <button name="google" onClick={onSocialClick}>Continue with Google</button>
-        <button name="github" onClick={onSocialClick}>Continue with Github</button>
+    <div className="authContainer">
+      <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="3x" style={{ marginBottom: 30 }} />
+      <AuthForm />
+      <div className="authBtns">
+        <button name="google" onClick={onSocialClick} className="authBtn">
+          Continue with Google <FontAwesomeIcon icon={faGoogle} />
+        </button>
+        <button name="github" onClick={onSocialClick} className="authBtn">
+          Continue with Github <FontAwesomeIcon icon={faGithub} />
+        </button>
       </div>
     </div>
   );

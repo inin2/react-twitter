@@ -9,18 +9,28 @@ function AppRouter({ refreshUser, isLoggedIn, userObj }) {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       {isLoggedIn && <Navigation userObj={userObj} />}
-      <Routes>
-        {isLoggedIn ? (
-          <>
-            <Route path="/" element={<Home userObj={userObj} />} />
-            <Route path="/profile" element={<Profile userObj={userObj} refreshUser={refreshUser} />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Auth />} />
-          </>
-        )}
-      </Routes>
+      <div
+        style={{
+          maxWidth: 890,
+          width: "100%",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Routes>
+          {isLoggedIn ? (
+            <>
+              <Route path="/" element={<Home userObj={userObj} />} />
+              <Route path="/profile" element={<Profile userObj={userObj} refreshUser={refreshUser} />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Auth />} />
+            </>
+          )}
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
