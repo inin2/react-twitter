@@ -1,26 +1,14 @@
 @import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
 
 * {
+  font-size: 14px;
   box-sizing: border-box;
-}
-
-input {
-  all: unset;
-  box-sizing: border-box;
-  appearance: none;
 }
 
 body {
   background-color: black;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: white;
-}
-
-button {
-  background-color: white;
-  color: black;
 }
 
 a {
@@ -28,60 +16,59 @@ a {
   color: inherit;
 }
 
-form {
-  width: 100%;
+input,
+button {
+  border: none;
+  outline: none;
 }
 
-.nweet-input::placeholder {
-  color: white;
-  opacity: 0.9;
+/* Router */
+
+.routerContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 890px;
+  margin: 0 auto;
 }
+
+/* Navigation */
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.homeBtn,
+.profileBtn {
+  margin: 0 10px;
+}
+
+.homeBtn .icon,
+.profileBtn .icon {
+  color: #04aaff;
+  font-size: 40px;
+}
+
+.profileBtn a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileBtn a span {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* Home */
 
 .container {
-  width: 100%;
-  max-width: 320px;
   display: flex;
   flex-direction: column;
-}
-
-.formInput {
-  width: 100%;
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: 1px solid black;
-  text-align: center;
-  background-color: white;
-  color: black;
-}
-
-.formBtn {
-  cursor: pointer;
-  width: 100%;
-  padding: 7px 20px;
-  text-align: center;
-  color: white;
-  border-radius: 20px;
-  background-color: #04aaff;
-  cursor: pointer;
-}
-
-.cancelBtn {
-  cursor: pointer;
-  background-color: tomato;
-}
-
-/* Profile Page */
-
-.profileForm {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-  padding-bottom: 30px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.logOut {
-  margin-top: 50px;
+  width: 320px;
+  margin-top: 20px;
 }
 
 /* Nwitter Factory */
@@ -90,40 +77,37 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
 .factoryInput__container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  margin-bottom: 20px;
   width: 100%;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .factoryInput__input {
+  background-color: inherit;
   flex-grow: 1;
   height: 40px;
   padding: 0px 20px;
   color: white;
   border: 1px solid #04aaff;
   border-radius: 20px;
-  font-weight: 500;
-  font-size: 12px;
 }
 
 .factoryInput__arrow {
   position: absolute;
   right: 0;
-  background-color: #04aaff;
-  height: 40px;
   width: 40px;
+  height: 40px;
   padding: 10px 0px;
+  color: white;
   text-align: center;
   border-radius: 20px;
-  color: white;
+  background-color: #04aaff;
+  cursor: pointer;
 }
 
 .factoryInput__label {
@@ -133,72 +117,82 @@ form {
 
 .factoryInput__label span {
   margin-right: 10px;
-  font-size: 12px;
-}
-
-.factoryForm__attachment {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .factoryForm__attachment img {
-  height: 80px;
   width: 80px;
+  height: 80px;
   border-radius: 40px;
 }
 
 .factoryForm__clear {
+  margin-bottom: 20px;
   color: #04aaff;
-  cursor: pointer;
   text-align: center;
+  cursor: pointer;
 }
 
 .factoryForm__clear span {
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 /* Nweet */
 
-.nweetEdit .formBtn {
+.formInput {
+  width: 100%;
+  padding: 10px 20px;
+  color: black;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.formBtn {
+  width: 100%;
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #04aaff;
   cursor: pointer;
+}
+
+.cancelBtn {
+  width: 100%;
+  background-color: tomato;
+}
+
+.nweetEdit .formBtn {
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
 .nweet {
-  margin-bottom: 20px;
-  background-color: white;
-  width: 100%;
-  max-width: 320px;
+  position: relative;
+  margin-bottom: 25px;
   padding: 20px;
   border-radius: 10px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
   color: rgba(0, 0, 0, 0.8);
-}
-
-.nweet h4 {
-  font-size: 14px;
+  background-color: white;
 }
 
 .nweet img {
-  right: -10px;
-  top: 20px;
   position: absolute;
-  border-radius: 50%;
+  top: 20px;
+  right: -10px;
   width: 50px;
   height: 50px;
   margin-top: 10px;
   background: white;
+  border-radius: 50%;
 }
 
 .nweet__actions {
   position: absolute;
-  right: 10px;
   top: 10px;
+  right: 10px;
 }
 
 .nweet__actions span {
@@ -209,69 +203,84 @@ form {
   margin-right: 10px;
 }
 
+/* Profile */
+
+.profileForm {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+.logOut {
+  margin-top: 20px;
+}
+
 /* Auth */
 
 .authContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  width: 320px;
+  height: 100vh;
+}
+
+.authContainer .logo {
+  margin-bottom: 30px;
+  color: #04aaff;
+  font-size: 50px;
 }
 
 .authBtns {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 320px;
 }
 
 .authBtn {
-  cursor: pointer;
-  border-radius: 20px;
-  border: none;
+  width: 150px;
   padding: 10px 0px;
   font-size: 12px;
   text-align: center;
-  width: 150px;
+  border-radius: 20px;
   background: white;
   cursor: pointer;
+}
+
+.authBtn .icon {
+  font-size: 12px;
 }
 
 /* AuthForm */
 
 .authInput {
-  max-width: 320px;
   width: 100%;
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 30px;
-  background-color: rgba(255, 255, 255, 1);
-  margin-bottom: 10px;
-  font-size: 12px;
-  color: black;
 }
 
 .authSubmit {
-  text-align: center;
-  background: #04aaff;
-  color: white;
   margin-top: 10px;
+  color: white;
+  background: #04aaff;
   cursor: pointer;
 }
 
 .authError {
   color: tomato;
-  text-align: center;
   font-weight: 500;
-  font-size: 12px;
+  text-align: center;
 }
 
 .authSwitch {
-  color: #04aaff;
-  cursor: pointer;
   margin-top: 10px;
-  margin-bottom: 50px;
-  display: block;
-  font-size: 12px;
+  margin-bottom: 20px;
+  color: #04aaff;
+  font-size: 14px;
   text-decoration: underline;
+  cursor: pointer;
 }

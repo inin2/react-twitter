@@ -37,7 +37,7 @@ function Nweet({ nweetObj, isOwner }) {
     <div className="nweet">
       {editing ? (
         <>
-          <form onSubmit={onEditSubmit} className="container nweetEdit">
+          <form onSubmit={onEditSubmit} className="nweetEdit">
             <input type="text" placeholder="Edit your nweet" value={newNweet} required autoFocus onChange={onChange} className="formInput" />
             <input type="submit" value="Update Nweet" className="formBtn" />
           </form>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { dbService } from "fbase";
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import NweetFactory from "components/NweetFactory";
-
 import Nweet from "components/Nweet";
 
 function Home({ userObj }) {
@@ -22,7 +21,7 @@ function Home({ userObj }) {
   return (
     <div className="container">
       <NweetFactory userObj={userObj} />
-      <div style={{ marginTop: 30 }}>
+      <div>
         {nweets.map((nweet) => (
           <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid} />
         ))}

@@ -9,15 +9,7 @@ function AppRouter({ refreshUser, isLoggedIn, userObj }) {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       {isLoggedIn && <Navigation userObj={userObj} />}
-      <div
-        style={{
-          maxWidth: 890,
-          width: "100%",
-          margin: "0 auto",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="routerContainer">
         <Routes>
           {isLoggedIn ? (
             <>

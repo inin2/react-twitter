@@ -20,14 +20,16 @@ function Auth() {
 
   return (
     <div className="authContainer">
-      <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="3x" style={{ marginBottom: 30 }} />
+      <FontAwesomeIcon icon={faTwitter} className="logo" />
       <AuthForm />
       <div className="authBtns">
         <button name="google" onClick={onSocialClick} className="authBtn">
-          Continue with Google <FontAwesomeIcon icon={faGoogle} />
+          Continue with Google
+          <FontAwesomeIcon icon={faGoogle} className="icon" />
         </button>
         <button name="github" onClick={onSocialClick} className="authBtn">
-          Continue with Github <FontAwesomeIcon icon={faGithub} />
+          Continue with Github
+          <FontAwesomeIcon icon={faGithub} className="icon" />
         </button>
       </div>
     </div>

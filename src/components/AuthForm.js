@@ -36,7 +36,7 @@ function AuthForm() {
 
   return (
     <>
-      <form onSubmit={onSubmit} className="container">
+      <form onSubmit={onSubmit}>
         <input className="authInput" name="email" type="text" placeholder="Email" required value={email} onChange={onChange} />
         <input className="authInput" name="password" type="password" placeholder="Password" required value={password} onChange={onChange} />
         <input className="authInput authSubmit" type="submit" value={newAccount ? "Create Account" : "Sigin In"} />
