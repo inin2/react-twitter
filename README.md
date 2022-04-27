@@ -3,4 +3,4 @@
 <img src="./readme_source/react-twitter.gif" alt="preview">
 
 ## 실행
-https://inin2.github.io/react-twitter
+https://jjung-in.github.io/react-twitter
